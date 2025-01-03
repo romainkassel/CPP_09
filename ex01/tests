@@ -1,0 +1,19 @@
+"8 9 * 9 - 9 - 9 - 4 - 0 +" // should not throw, max acceptable number range here
+"8 -1 * 9 - 9 - 9 - 4 - 1 +" // should throw, number less than 0
+"8 10 * 9 - 9 - 9 - 4 - 1 +" // should throw, number bigger than 9
+
+"8 9 + 9 - 9 / 9 * 4 - 0 +" // should not throw, all acceptable tokens here
+"8 9 + 9 - 9 \ 9 * 4 - 0 +" // should throw, one forbidden token "\"
+
+"8 9 * 9 - 9 - 9 - 4 - 1 + +" // should throw, extra operator
+
+"8 7 9 * 9 - 9 - 9 - 4 - 1 +" // should display 2 remaining numbers in the stack
+"8 7 9 7 * 9 - 9 - 9 - 4 - 1 +" // // should display 3 remaining numbers in the stack
+
+"1 2 * 4 / 2 * 2 4 - +" // should not throw, involves division with float during process
+"7 6 + 7 - 9 + 1 - 7 + 6 / 8 * 5 / 1 * 9 + 0 +" // should not throw, involves division with float during process + big expression
+"7 6 + 7 - 9 + 1 - 7 + 0 / 8 * 5 / 1 * 9 + 1 /" // should throw, involves division by 0
+
+// should throw, no argument
+"8 9 * 9 - 9 - 9 - 4 - 0 +" "8 9 * 9 - 9 - 9 - 4 - 0 +" // should throw, 2 arguments
+8 9 * 9 - 9 - 9 - 4 - 1 + // should throw, no quoted expression
